@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+numpy
+python-dotenv
+pyyaml
+python-multipart
+pydantic-settings
+joblib
+scikit-learn
+dependency_injector
