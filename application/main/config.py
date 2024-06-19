@@ -35,6 +35,12 @@ class GlobalConfig(BaseSettings):
 
     MONGO_HOST: Optional[str] = Field(None, env="MONGO_HOST")
     MONGO_PORT: Optional[str] = Field(None, env="MONGO_PORT")
+    MONGO_USER: Optional[str] = Field(None, env="MONGO_USER")
+    MONGO_PASS: Optional[str] = Field(None, env="MONGO_PASS")
+    MONGO_DB: Optional[str] = Field(None, env="MONGO_DB")
+    MONGO_COLLECTION: Optional[str] = Field(None, env="MONGO_COLLECTION")
+
+    REDIS_URL: Optional[str] = Field(None, env="REDIS_URL")
 
     ENV: Optional[str] = Field(None, env="ENV")
 

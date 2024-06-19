@@ -16,12 +16,12 @@ async def anomaly_price_detector(
     product_info: ProductInput,
     service: AnomalyDetectorService = Depends(Provide[Container.anomaly_detector_service])
 ):
-    name = product_info.name
+    item_id = product_info.item_id
     price = product_info.price
     
-    logger.debug(f"detecting anomaly price for product: {name} with price: {price}")
+    logger.debug(f"detecting anomaly price for item: {item_id} with price: {price}")
     
-    anomaly_response = service.classify(price)
+    anomaly_response = await service.classify(item_id=item_id, price=price)
     
-    resp = InferenceOutput(id=100, anomaly=anomaly_response[0])
+    resp = InferenceOutput(item_id=item_id, price=price, anomaly=anomaly_response, code=200)
     return resp

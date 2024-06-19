@@ -1,12 +1,14 @@
 from pydantic import BaseModel
-
+from typing import Optional
 
 class ProductInput(BaseModel):
-    name: str
+    item_id: str
     price: float
 
 class InferenceOutput(BaseModel):
-    id: int
-    anomaly: int
-
+    item_id: str
+    price: float
+    anomaly: bool
+    metadata: Optional[str] = {}
+    code: int
 

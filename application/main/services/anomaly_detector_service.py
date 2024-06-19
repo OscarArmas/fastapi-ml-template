@@ -17,4 +17,6 @@ class AnomalyDetectorService:
         self.anomaly_detector = AnomalyDetector()
 
     def classify(self, price: int) -> str:
+
+        
         return self.anomaly_detector.anomaly_detector_inf(np.array([price]).reshape(1, -1) )

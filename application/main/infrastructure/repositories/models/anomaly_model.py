@@ -1,20 +1,10 @@
 # app/repositories/anomaly_detector.py
 from dataclasses import dataclass, field
-from abc import ABC, abstractmethod
-from typing import Any
+from .base_model import MLModel
 import joblib
 
-class MLModel(ABC):
-    @abstractmethod
-    def load_model(self, model_path: str, *params, **kwargs) -> None:
-        pass
-
-    @abstractmethod
-    def inference(self, *params, **kwargs) -> Any:
-        pass
-
 @dataclass
-class AnomalyDetector(MLModel):
+class AnomalyModel(MLModel):
     model_path: str
     model: any = field(init=False, default=None)
 
