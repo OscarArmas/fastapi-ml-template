@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: test_db
+    restart: always
+    volumes:
+      - ${PWD}/data/bulk_data.sh:/docker-entrypoint-initdb.d/init.sh
+      - ${PWD}/data:/data
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  #api:
+  #  image: ml-anomaly-detector
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile
+  #    args:
+  #      - INSTALL_DEV_DEPENDENCIES="true"
+  #  ports:
+  #    - 8080:8080
+  #  depends_on:
+  #   - redis
