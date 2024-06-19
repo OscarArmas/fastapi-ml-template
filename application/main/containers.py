@@ -1,18 +1,20 @@
 # app/containers.py
 from dependency_injector import containers, providers
-from .services.anomaly_se import AnomalyDetectorService
-from application.main.infrastructure.repositories.models.anomaly_model import AnomalyModel
+
+from application.main.config import settings
 from application.main.infrastructure.repositories.cache.redis_cache import RedisCache
 from application.main.infrastructure.repositories.db.mongo_db import Mongodb
-from application.main.config import settings
+from application.main.infrastructure.repositories.models.anomaly_model import (
+    AnomalyModel,
+)
+
+from .services.anomaly_se import AnomalyDetectorService
+
 
 class Container(containers.DeclarativeContainer):
 
-    #Instances
-    redis_instance = providers.Singleton(
-        RedisCache,
-        redis_url=settings.REDIS_URL
-    )
+    # Instances
+    redis_instance = providers.Singleton(RedisCache, redis_url=settings.REDIS_URL)
 
     mongo_instance = providers.Singleton(
         Mongodb,
@@ -24,16 +26,12 @@ class Container(containers.DeclarativeContainer):
         collection_name=settings.MONGO_COLLECTION,
     )
 
-    #Models
+    # Models
     ml_model = providers.Singleton(
-        AnomalyModel,
-        model_path=settings.APP_CONFIG.ANOMALY_DETECTOR_MODEL
+        AnomalyModel, model_path=settings.APP_CONFIG.ANOMALY_DETECTOR_MODEL
     )
 
-    #Services
+    # Services
     anomaly_detector_service = providers.Factory(
-        AnomalyDetectorService,
-        model=ml_model,
-        cache=redis_instance,
-        db=mongo_instance
+        AnomalyDetectorService, model=ml_model, cache=redis_instance, db=mongo_instance
     )

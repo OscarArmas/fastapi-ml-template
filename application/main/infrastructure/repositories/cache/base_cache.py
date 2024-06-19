@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class BaseCache(ABC):
     """
     Abstract base class for cache backends.
@@ -9,7 +10,7 @@ class BaseCache(ABC):
     async def get(self, key):
         """
         Asynchronously get a value from the cache.
-        
+
         :param key: the key
         :return: a tuple (value, found)
         """
@@ -19,7 +20,7 @@ class BaseCache(ABC):
     async def set(self, key, value, timeout=None):
         """
         Asynchronously set a value in the cache with an optional timeout.
-        
+
         :param key: the key
         :param value: the value to store
         :param timeout: optional timeout in seconds
@@ -30,7 +31,7 @@ class BaseCache(ABC):
     async def has(self, key):
         """
         Asynchronously check if a key exists in the cache.
-        
+
         :param key: the key
         :return: True if the key exists, False otherwise
         """

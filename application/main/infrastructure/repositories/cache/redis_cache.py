@@ -1,6 +1,7 @@
+import aioredis
+
 from .base_cache import BaseCache
 
-import aioredis
 
 class RedisCache(BaseCache):
     """Redis Cache Backend."""

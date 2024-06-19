@@ -2,7 +2,7 @@
 from pathlib import Path
 from typing import Optional
 
-from pydantic import Field, BaseModel
+from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings
 
 
@@ -17,7 +17,6 @@ class AppConfig(BaseModel):
     MODELS_DIR: Path = BASE_DIR.joinpath("models")
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # question classification model to use
     ANOMALY_DETECTOR_MODEL: Path = MODELS_DIR.joinpath(
         "v1_0_0/isolation_forest_model.joblib"
     )

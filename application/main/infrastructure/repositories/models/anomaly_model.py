@@ -1,7 +1,10 @@
 # app/repositories/anomaly_detector.py
 from dataclasses import dataclass, field
-from .base_model import MLModel
+
 import joblib
+
+from .base_model import MLModel
+
 
 @dataclass
 class AnomalyModel(MLModel):

@@ -8,9 +8,11 @@ from application.main.containers import Container
 
 
 def get_application():
-    _app = FastAPI(title=settings.API_NAME,
-                   description=settings.API_DESCRIPTION,
-                   version=settings.API_VERSION)
+    _app = FastAPI(
+        title=settings.API_NAME,
+        description=settings.API_DESCRIPTION,
+        version=settings.API_VERSION,
+    )
     _app.include_router(IncludeAPIRouter())
     _app.add_middleware(
         CORSMiddleware,
@@ -29,4 +31,4 @@ container.wire(packages=["application.main.routers"])
 app.container = container
 
 
-#uvicorn.run("manage:app", host=settings.HOST, port=settings.PORT, log_level=settings.LOG_LEVEL, use_colors=True,reload=True)
+# uvicorn.run("manage:app", host=settings.HOST, port=settings.PORT, log_level=settings.LOG_LEVEL, use_colors=True,reload=True)
