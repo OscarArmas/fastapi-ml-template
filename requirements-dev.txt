@@ -1,0 +1,9 @@
+pydocstyle==6.3.0
+pytest==7.3.1
+pytest-cov==4.1.0
+pytest-loguru==0.3.0
+pytest-mock==3.12.0
+sqlfluff==2.3.5
+black==23.3.0
+pyupgrade==3.16.0
+isort==5.13.2
