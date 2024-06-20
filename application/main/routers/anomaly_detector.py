@@ -25,7 +25,7 @@ async def anomaly_price_detector(
         item_id = product_info.item_id
         price = product_info.price
 
-        logger.debug(f"detecting anomaly price for item: {item_id} with price: {price}")
+        logger.info(f"detecting anomaly price for item: {item_id} with price: {price}")
 
         anomaly_response = await service.classify(item_id=item_id, price=price)
 
