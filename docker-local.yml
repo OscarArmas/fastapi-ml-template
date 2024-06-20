@@ -17,14 +17,15 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
-  #api:
-  #  image: ml-anomaly-detector
-  #  build:
-  #    context: .
-  #    dockerfile: Dockerfile
-  #    args:
-  #      - INSTALL_DEV_DEPENDENCIES="true"
-  #  ports:
-  #    - 8080:8080
-  #  depends_on:
-  #   - redis
+  api:
+    image: ml-anomaly-detector
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - INSTALL_DEV_DEPENDENCIES="true"
+    ports:
+      - 8080:8080
+    depends_on:
+     - redis
+     - mongo
