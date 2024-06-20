@@ -3,7 +3,6 @@ from typing import Dict
 
 
 class DataBaseOperations(abc.ABC):
-
     def __init__(self):
         super().__init__()
 

@@ -8,11 +8,10 @@ from application.main.infrastructure.repositories.models.anomaly_model import (
     AnomalyModel,
 )
 
-from .services.anomaly_se import AnomalyDetectorService
+from .services.anomaly_detector_service import AnomalyDetectorService
 
 
 class Container(containers.DeclarativeContainer):
-
     # Instances
     redis_instance = providers.Singleton(RedisCache, redis_url=settings.REDIS_URL)
 
