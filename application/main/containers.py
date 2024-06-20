@@ -14,6 +14,7 @@ from .services.anomaly_detector_service import AnomalyDetectorService
 class Container(containers.DeclarativeContainer):
     # Instances
     redis_instance = providers.Singleton(RedisCache, redis_url=settings.REDIS_URL)
+    print(f'================================{settings.REDIS_URL}')
 
     mongo_instance = providers.Singleton(
         Mongodb,

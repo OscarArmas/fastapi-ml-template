@@ -42,7 +42,7 @@ and just try the next CURL:
 
 ```
 curl -X 'POST' \
-  'http://127.0.0.1:8000/api/v1/anomaly-detection/item_price' \
+  'http://127.0.0.1:8080/api/v1/anomaly-detection/item_price' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -66,7 +66,7 @@ docker-compose up mongo redis --build
 for deleting the images and volumes use:
 
 ```
-docker-compose down --rmi all --volumes
+docker-compose -f docker-local.yml down --rmi all --volumes
 ```
 
 Directory structure

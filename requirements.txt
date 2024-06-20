@@ -9,3 +9,5 @@ joblib==1.4.2
 scikit-learn==1.5.0
 dependency-injector==4.41.0
 aioredis==2.0.1
+motor==3.0.0
+loguru==0.7.2
