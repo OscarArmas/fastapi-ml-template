@@ -18,7 +18,7 @@ class AppConfig(BaseModel):
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
     ANOMALY_DETECTOR_MODEL: Path = MODELS_DIR.joinpath(
-        "v1_0_0/isolation_forest_model.joblib"
+        "1_0_0/isolation_forest_model.joblib"
     )
 
 
