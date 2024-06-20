@@ -9,11 +9,12 @@ email: oarmas.exe@gmail.com
 Introduction
 --------
 
-This project develops a comprehensive machine learning (ML) system for anomaly detection. It encompasses all stages of the model lifecycle, from exploratory data analysis (EDA) and model development to the deployment of an inference API. This system is designed for deployment in a real-time API environment, ensuring scalability for large-scale applications. The README.md file describes main components of this project.
+This project develops a system for anomaly detection. It encompasses all stages of the model lifecycle, from exploratory data analysis (EDA) and model development to the deployment of an inference API. This system is designed for deployment in a real-time API environment, ensuring scalability for large-scale applications. The README.md file describes main components of this project.
 
 Requirements to run this project:
 1. A Linux-like OS.
 2. Docker.
+3. Python 3.10
 
 
 -------------
@@ -92,6 +93,13 @@ The directory structure looks like this:
 ├── dev-tools               <- Scripts and utilities to support development activities.
 ├── data                    <- Directory for data used by the application.
 │   ├── bulk_data.sh        <- Script to bulk load data into MongoDB.
+```
+
+API Docs
+--------
+
+```
+http://127.0.0.1:8080/docs
 ```
 
 Linting
