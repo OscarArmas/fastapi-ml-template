@@ -2,10 +2,10 @@ from application.main.domain.exceptions import PriceIsLessThanOrEqualToZero
 
 
 class ProductEntity:
-    def __init__(self, name: str, price: float):
+    def __init__(self, item_id: str, price: float):
         self.__validate_price(price)
 
-        self.name = name
+        self.item_id = item_id
         self.price = price
 
     @staticmethod
@@ -16,5 +16,5 @@ class ProductEntity:
 
 class ProductEntityFactory:
     @staticmethod
-    def create(name: str, price: float) -> ProductEntity:
-        return ProductEntity(name, price)
+    def create(item_id: str, price: float) -> ProductEntity:
+        return ProductEntity(item_id, price)
