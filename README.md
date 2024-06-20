@@ -61,7 +61,7 @@ sh dev-tools/build.sh conda-env
 
 * [2] start just Redis and MongoDB services:
 ```
-docker-compose up mongo redis --build
+docker-compose -f docker-local.yml up mongo redis --build
 ```
 for deleting the images and volumes use:
 
