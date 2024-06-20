@@ -26,14 +26,13 @@ All the EDA can be review on folder `notebooks/`
 
 #### Inference Job
 
-Having the model artifact relying at dir `models/`, we are ready to wrap it up as a Inference Job.
-we need three services:
+We need three services:
 
 * Redis
 * MongoDB
 * API
 
-We can execute this threee services via docker-compose:
+We can execute this three services via docker-compose:
 
 ```
 docker-compose -f docker-local.yml up --build
@@ -63,8 +62,6 @@ sh dev-tools/build.sh conda-env
 * [2] start just Redis and MongoDB services:
 ```
 docker-compose up mongo redis --build
-
-
 ```
 for deleting the images and volumes use:
 
