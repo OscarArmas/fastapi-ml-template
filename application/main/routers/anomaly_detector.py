@@ -34,10 +34,9 @@ async def anomaly_price_detector(
         )
         return resp
     except Exception as ex:
-        if hasattr(ex, 'status_code') and hasattr(ex, 'message'):
+        if hasattr(ex, "status_code") and hasattr(ex, "message"):
             logger.error(str(ex))
             raise HTTPException(status_code=ex.status_code, detail=ex.message)
         else:
             logger.error(str(ex))
             raise HTTPException(status_code=500, detail=str(ex))
-        
