@@ -9,6 +9,7 @@ from application.main.infrastructure.repositories.models.anomaly_model import (
 )
 
 from .services.anomaly_detector_service import AnomalyDetectorService
+from .services.product_ingestion_service import ProductIngestionService
 
 
 class Container(containers.DeclarativeContainer):
@@ -34,3 +35,5 @@ class Container(containers.DeclarativeContainer):
     anomaly_detector_service = providers.Factory(
         AnomalyDetectorService, model=ml_model, cache=redis_instance, db=mongo_instance
     )
+
+    ingestion_service = providers.Factory(ProductIngestionService, db=mongo_instance)

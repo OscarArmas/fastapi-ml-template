@@ -1,20 +1,28 @@
+from typing import Any, Dict, List
+
+from pydantic import BaseModel, Field
+
 from application.main.domain.exceptions import PriceIsLessThanOrEqualToZero
 
 
-class ProductEntity:
-    def __init__(self, item_id: str, price: float):
-        self.__validate_price(price)
-
-        self.item_id = item_id
-        self.price = price
-
-    @staticmethod
-    def __validate_price(price: float):
-        if price <= 0:
-            raise PriceIsLessThanOrEqualToZero
+class ProductInput(BaseModel):
+    item_id: str
+    price: float
 
 
-class ProductEntityFactory:
-    @staticmethod
-    def create(item_id: str, price: float) -> ProductEntity:
-        return ProductEntity(item_id, price)
+class ProductStats(BaseModel):
+    _id: str
+    historical_prices: List[float]
+    lower_bound: float
+    upper_bound: float
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+
+
+class ProductStatsList(BaseModel):
+    items: List[ProductStats]
+
+    def length(self) -> int:
+        return len(self.items)
+
+    def to_dict_list(self) -> List[Dict[str, Any]]:
+        return [item.model_dump() for item in self.items]

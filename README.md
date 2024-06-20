@@ -39,7 +39,7 @@ We can execute this three services via docker-compose:
 docker-compose -f docker-local.yml up --build
 ```
 
-and just try the next CURL:
+and just try the next Curl:
 
 ```
 curl -X 'POST' \
@@ -51,7 +51,30 @@ curl -X 'POST' \
   "price": 15
 }'
 ```
+For ingest new data use this:
 
+```
+curl -X 'POST' "http://127.0.0.1:8000/api/v1/load/item_stats" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "items": [
+             {
+               "_id": "MLB1073354076",
+               "historical_prices": [15.62, 113.6, 134.9, 157.62, 166.14, 191.7, 244.95, 269.8, 281.16, 357.84, 374.88, 378.43, 397.6, 426.0, 461.5, 480.67, 497.0, 531.08, 533.21, 558.77, 606.34, 623.38, 795.2, 836.38, 891.76, 898.86, 979.8, 989.74, 1033.76, 1073.52, 1086.3, 1097.66, 1378.82, 1390.18, 1469.7, 1519.4, 1571.94, 2061.84, 2201.0, 2861.3, 4173.38],
+               "lower_bound": 54.812,
+               "upper_bound": 3648.548000000002,
+               "metadata": {}
+             },
+             {
+               "_id": "MLB1073354077",
+               "historical_prices": [10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0],
+               "lower_bound": 5.0,
+               "upper_bound": 105.0,
+               "metadata": {}
+             }
+           ]
+         }'
+```
 
 If you want to Debug locally:
 

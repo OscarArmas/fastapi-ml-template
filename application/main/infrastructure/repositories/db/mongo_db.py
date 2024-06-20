@@ -1,3 +1,5 @@
+from typing import Any, List
+
 import motor.motor_asyncio
 
 from application.main.infrastructure.repositories.db.base_db import DataBase
@@ -21,3 +23,9 @@ class Mongodb(DataBase):
             await self.connect()
         document = await self.collection.find_one({"_id": unique_id})
         return document
+
+    async def insert_multiple_db_record(self, records: List[Any]) -> int:
+        if self.collection is None:
+            await self.connect()
+        result = await self.collection.insert_many(records)
+        return len(result.inserted_ids)

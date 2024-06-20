@@ -9,3 +9,6 @@ class DataBase(ABC):
     def fetch_single_db_record(self, unique_id: str):
         raise NotImplementedError()
 
+    @abstractmethod
+    def insert_multiple_db_record(self, unique_id: str):
+        raise NotImplementedError()

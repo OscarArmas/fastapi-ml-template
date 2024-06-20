@@ -4,16 +4,14 @@ from fastapi import APIRouter, Depends, HTTPException
 from loguru import logger
 
 from application.main.containers import Container
-from application.main.infrastructure.schemas.product import (
-    InferenceOutput,
-    ProductInput,
-)
+from application.main.domain.entities.product import ProductInput
+from application.main.infrastructure.schemas.product import InferenceResponse
 from application.main.services.anomaly_detector_service import AnomalyDetectorService
 
 router = APIRouter(prefix="/anomaly-detection")
 
 
-@router.post("/item_price", response_model=InferenceOutput)
+@router.post("/item_price", response_model=InferenceResponse)
 @inject
 async def anomaly_price_detector(
     product_info: ProductInput,
@@ -29,7 +27,7 @@ async def anomaly_price_detector(
 
         anomaly_response = await service.classify(item_id=item_id, price=price)
 
-        resp = InferenceOutput(
+        resp = InferenceResponse(
             item_id=item_id, price=price, anomaly=anomaly_response, code=200
         )
         return resp
