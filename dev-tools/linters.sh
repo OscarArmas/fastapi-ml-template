@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-IMAGE_NAME="{{ cookiecutter.project_name }}"
+IMAGE_NAME="meli_challenge_ms"
 IMAGE_TAG=${DOCKER_IMAGE_TAG:-'dev'}
 PROJECT_PATH="$(pwd)"
 USE_DOCKER=0

@@ -39,4 +39,4 @@ check-codestyle:
 lint: test check-codestyle
 
 test:
-	$(PYTHON_INTERPRETER) -m pytest -v -c pyproject.toml tests/
+	$(PYTHON_INTERPRETER) -m pytest -v -c pyproject.toml application/test
