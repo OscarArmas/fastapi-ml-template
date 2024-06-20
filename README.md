@@ -123,3 +123,4 @@ In this section, I list some missing components to be implemented further.
 
 How to scale this API::
 --------
+![Scalable Infrastructure](https://github.com/OscarArmas/meli-challenge/blob/master/images/scalabre_infra.png)
