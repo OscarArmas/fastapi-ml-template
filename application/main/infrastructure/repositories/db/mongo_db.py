@@ -1,13 +1,10 @@
-from abc import ABC
-
 import motor.motor_asyncio
 
-from .base_db import DataBaseOperations
+from application.main.infrastructure.repositories.db.base_db import DataBase
 
 
-class Mongodb(DataBaseOperations, ABC):
+class Mongodb(DataBase):
     def __init__(self, user, psw, host, port, db_name, collection_name):
-        super().__init__()
         self.connection_uri = f"mongodb://{user}:{psw}@{host}:{port}/{db_name}?authSource=admin&retryWrites=true&w=majority"
         self.collection_name = collection_name
         self.db_name = db_name

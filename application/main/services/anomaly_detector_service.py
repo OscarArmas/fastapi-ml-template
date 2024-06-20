@@ -1,12 +1,12 @@
 # app/services/anomaly_detector_service.py
 from application.main.domain.exceptions import ItemNotFound
 from application.main.infrastructure.repositories.cache.base_cache import BaseCache
-from application.main.infrastructure.repositories.db.base_db import DataBaseOperations
+from application.main.infrastructure.repositories.db.base_db import DataBase
 from application.main.infrastructure.repositories.models.anomaly_model import MLModel
 
 
 class AnomalyDetectorService:
-    def __init__(self, model: MLModel, cache: BaseCache, db: DataBaseOperations):
+    def __init__(self, model: MLModel, cache: BaseCache, db: DataBase):
         self.model = model
         self.cache = cache
         self.db = db
