@@ -2,7 +2,7 @@
 SHELL := /usr/bin/env bash
 PYTHON := python
 PYTHONPATH := `pwd`
-VENV_PATH="$HOME/cascarone_ml"
+VENV_PATH="$HOME/meli-challenge"
 
 # Python Interpreter
 PYTHON_INTERPRETER = python3
@@ -16,8 +16,7 @@ PYTHON_INTERPRETER = python3
 #-----------------------#
 
 install:
-	tools/create_env.sh
-	source ${VENV_PATH}/bin/activate
+	dev-tools/build.sh v
 
 #-----------------------#
 # Code Style            #
