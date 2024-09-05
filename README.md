@@ -1,9 +1,8 @@
 ---
-name: Oscar Armas
-email: ---@gmail.com
+enjoy
 ---
 
-# ML-CHALLENGE 🚀
+# fastapi-ml-template 🚀
 
 
 Introduction
