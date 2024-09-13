@@ -1,9 +1,18 @@
----
-enjoy
----
+
+
+
 
 # fastapi-ml-template 🚀
 
+A repository demonstrating how to build a robust service for deploying machine learning models using FastAPI. This example includes several best practices, such as:
+
+
+- **Hexagonal Architecture**: Implementing a flexible, maintainable structure for the application.
+- **Code Style**: Enforcing clean, readable, and professional code standards.
+- **Dependency Injection**: Promoting modularity and testability of components.
+- **Linting and Testing**: Ensuring code quality and reliability through automated checks.
+- **Cache Memory**: Utilizing caching to enhance performance and reduce latency.
+- **Docker Containerization**: Simplifying deployment and environment consistency.
 
 Introduction
 --------
